@@ -565,14 +565,12 @@ function displayData(dataJSON)
 <table>
   <tr><th colspan="4">服务器参数</th></tr>
   <tr>
-    <td>IP地址</td>
-    <td colspan="3">你的IP地址是：<?php echo @$_SERVER['REMOTE_ADDR'];?>:<?php echo $_SERVER['REMOTE_PORT'];?></td>
-  </tr>
-  <tr>
-    <td>服务器语言</td>
-    <td><?php echo getenv("HTTP_ACCEPT_LANGUAGE");?></td>
-    <td>服务器端口</td>
-    <td><?php echo $_SERVER['SERVER_PORT'];?></td>
+    <td>回源IP</td>
+    <td colspan="3"><?php echo @$_SERVER['REMOTE_ADDR'];?> : <?php echo $_SERVER['REMOTE_PORT'];?></td>
+    </tr>
+        <tr>
+        <td>IP</td>
+        <td colspan="3"><?php echo @$_SERVER['HTTP_CF_CONNECTING_IP'];?></td>
   </tr>
 </table>
 <?if("show"==$sysReShow){?>
@@ -689,9 +687,7 @@ if($sysInfo['swapTotal']>0)
 </form>
 	<table>
 		<tr>
-			<td class="w_foot"><A HREF="http://#" target="_blank"><?php echo $title.$version;?></A></td>
 			<td class="w_foot"><?php $run_time = sprintf('%0.4f', microtime_float() - $time_start);?>Processed in <?php echo $run_time?> seconds. <?php echo memory_usage();?> memory usage.</td>
-			<td class="w_foot"><a href="#w_top">返回顶部</a></td>
 		</tr>
 	</table>
 </div>
